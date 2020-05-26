@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Black Jack Dice</title>
+    <meta name="author" content="Leia Johst" >
+    <meta name="description" content="Trivia Quiz" >
+    <link rel="shortcut icon" href="images/dice.jpg" type="image/x-icon" />
+    <style>
+        body {
+            background-image: url("images/dice.jpg");
+            background-repeat: repeat;
+        }
+        .content {
+            display: grid;
+            grid-template-columns: 1Fr;
+            grid-template-rows: 90px 2Fr 3Fr 70px;
+            grid-template-areas: "header"
+                                 "rules"
+                                 "game"
+                                 "footer";
+            width: 900px;
+            margin: auto;
+            padding-left: 5px;
+            padding-right: 5px;
+            background: white;
+            border-left: #3e3d3d solid thin;
+            border-right: #3e3d3d solid thin;
+        }
+        .header {
+            grid-area: header;
+            border-radius: 20px;
+            background: aquamarine;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            margin-top: 0;
+        }
+        .rules {
+            grid-area: rules;
+            border-radius: 20px;
+            background: lightblue;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+        .game {
+            grid-area: game;
+            border-radius: 20px;
+            background: paleturquoise;
+            padding-left: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-top: 30px;
+            display: grid;
+            grid-template-columns: 1Fr 1Fr 1Fr;
+            grid-template-rows: 100px 80px 60px 60px 120px 120px;
+            grid-template-areas: "icon1 buttons icon2"
+                                 "textspace1 playbutton textspace2"
+                                 "scorebutton1 . scorebutton3"
+                                 "scorebutton2 currentscore scorebutton4"
+                                 "dice1 . dice2"
+                                 "dice3 . dice4";
+        }
+        .icon1 {
+            grid-area: icon1;
+            border-radius: 5px;
+        }
+        .buttons {
+            grid-area: buttons;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: 1Fr 1Fr;
+            grid-template-rows: 1Fr 1Fr;
+            grid-template-areas: "roll1 roll2"
+                                 "finish1 finish2";
+        }
+        .icon2 {
+            grid-area: icon2;
+            border-radius: 5px;
+        }
+        img {
+            border-radius: 5px;
+        }
+        .roll1 {
+            border-radius: 5px;
+            background: darkturquoise;
+            height: 40px;
+            width: 120px;
+            grid-area: roll1;
+        }
+        .roll2 {
+            border-radius: 5px;
+            background: darkturquoise;
+            height: 40px;
+            width: 120px;
+            grid-area: roll2;
+        }
+        .finish1 {
+            border-radius: 5px;
+            background: mediumturquoise;
+            height: 40px;
+            width: 120px;
+            grid-area: finish1;
+        }
+        .finish2 {
+            border-radius: 5px;
+            background: mediumturquoise;
+            height: 40px;
+            width: 120px;
+            grid-area: finish2;
+        }
+        .textspace1 {
+            grid-area: textspace1;
+        }
+        .playbutton {
+            grid-area: playbutton;
+            border-radius: 5px;
+            background: lightseagreen;
+            height: 40px;
+            width: 120px;
+            margin: 0 auto 0 auto;
+        }
+        .textspace2 {
+            grid-area: textspace2;
+        }
+        .scorebutton1 {
+            grid-area: scorebutton1;
+            border-radius: 5px;
+            height: 40px;
+            width: 140px;
+            margin: 0 auto 0 auto;
+            background: dodgerblue;
+        }
+        .scorebutton3 {
+            grid-area: scorebutton3;
+            border-radius: 5px;
+            height: 40px;
+            width: 140px;
+            margin: 0 auto 0 auto;
+            background: dodgerblue;
+        }
+        .scorebutton2 {
+            grid-area: scorebutton2;
+            border-radius: 5px;
+            height: 40px;
+            width: 140px;
+            margin: 0 auto 0 auto;
+            background: #00d9ff;
+        }
+        .currentscorebutton {
+            grid-area: currentscore;
+            border-radius: 5px;
+            height: 40px;
+            width: 140px;
+            margin: 0 auto 0 auto;
+            background: cornflowerblue;
+        }
+        .scorebutton4 {
+            grid-area: scorebutton4;
+            border-radius: 5px;
+            height: 40px;
+            width: 140px;
+            margin: 0 auto 0 auto;
+            background: #00d9ff;
+        }
+        .dice1 {
+            grid-area: dice1;
+            background: deepskyblue;
+            color: white;
+            width: 80px;
+            margin: auto;
+            height: 80px;
+            font-size: x-large;
+        }
+        .dice2 {
+            grid-area: dice2;
+            background: deepskyblue;
+            color: white;
+            width: 80px;
+            margin: auto;
+            height: 80px;
+            font-size: x-large;
+        }
+        .dice3 {
+            grid-area: dice3;
+            background: deepskyblue;
+            color: white;
+            width: 80px;
+            margin: auto;
+            height: 80px;
+            font-size: x-large;
+        }
+        .dice4 {
+            grid-area: dice4;
+            background: deepskyblue;
+            color: white;
+            width: 80px;
+            margin: auto;
+            height: 80px;
+            font-size: x-large;
+        }
+        .footer {
+            grid-area: footer;
+            border-radius: 20px;
+            background: #7fffd4;
+            padding-left: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="header">
+            <h1>Black Jack Dice</h1>
+        </div>
+        <div class="rules">
+            <h2>Blackjack Dice Game Rules</h2>
+            <h3>GAMEPLAY</h3>
+            <p>The objective of the game is to be the first player to score 10 points. Each player gets two 6-sided dice to play. In each turn, the current layer rolls two dice and score as following:</p>
+            <ul>
+                <li>In each turn, the current player rolls two dice and adds the dice numbers to his/her/their score IN THAT TURN. The player can roll as many times as he/she/they want/s.</li>
+                <li>Once the current player has scored 16 or more, he/she/they has/have the option to stop rolling, or just to roll one die one or more times.</li>
+                <li>If the turn total goes over 21, then the player is busted and gets no points for that turn.</li>
+                <li>The aim is to score exactly 21 or get closest to 21 without going over.</li>
+                <li>If the current player scores exactly 21 in the round, then he/she/they immediately get/s 2 points.</li>
+                <li>If no player scores 21, the player closest to 21 gets 1 point. If both players have the same score, no points are given.</li>
+                <li>The game is played for multiple rounds and the first player to reach 10 points wins the game.</li>
+            </ul>
+        </div>
+        <div class="game">
+            <div class="icon1">
+                <img src="images/icon1.jpg"
+                     alt="player icon"
+                     height="85">
+            </div>
+            <div class="buttons">
+                <input class="roll1" type="button" onclick="rollDice1()" value="Roll Dice">
+                <input class="roll2" type="button" onclick="rollDice2()" value="Roll Dice">
+                <input class="finish1" type="button" onclick="finishTurn1()" value="Finish Turn">
+                <input class="finish2" type="button" onclick="finishTurn2()" value="Finish Turn">
+            </div>
+            <div class="icon2">
+                <img src="images/icon2.jpg"
+                     alt="player icon"
+                     height="85">
+            </div>
+            <div class="textspace1" id="textspace1">
+
+            </div>
+            <div class="playbutton">
+                <input class="playbutton" type="button" onclick="startGame()" value="Start Game">
+            </div>
+            <div class="textspace2" id="textspace2">
+
+            </div>
+            <div class="scorebutton1" id="scorebutton1">
+
+            </div>
+            <div class="scorebutton3" id="scorebutton3">
+
+            </div>
+            <div class="scorebutton2" id="scorebutton2">
+
+            </div>
+            <div class="currentscorebutton" id="currentscorebutton">
+
+            </div>
+            <div class="scorebutton4" id="scorebutton4">
+
+            </div>
+            <div class="dice1" id="dice1">
+
+            </div>
+            <div class="dice2" id="dice2">
+
+            </div>
+            <div class="dice3" id="dice3">
+
+            </div>
+            <div class="dice4" id="dice4">
+
+            </div>
+        </div>
+        <div class="footer">
+            <h4>By Leia Johst</h4>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
