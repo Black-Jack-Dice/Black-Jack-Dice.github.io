@@ -249,12 +249,9 @@ function finishTurn2() {
         text1.innerHTML = "<br/>" + "Current turn";
         const text2 = document.getElementById("textspace2");
         text2.innerHTML = "<br/>" + " ";
-        alert("Player 2 didn't bust")
         turn = 1;
         if (turnScore1 > 15 && turnScore1 < 21) {
-            alert("PLayer 1 didn't bust either")
             if (turnScore1 > turnScore2) {
-                alert("Player 1 had a higher score")
                 totalScore1 += 1;
                 playerTotal1.innerHTML = " " + totalScore1;
                 turnScore1 = 0;
@@ -277,7 +274,6 @@ function finishTurn2() {
                 }
             }
             else if (turnScore2 > turnScore1) {
-                alert("Player 2 had a higher score")
                 totalScore2 += 1;
                 playerTotal2.innerHTML = " " + totalScore2;
                 turnScore1 = 0;
@@ -300,7 +296,6 @@ function finishTurn2() {
                 }
             }
             else if (turnScore2 === turnScore1) {
-                alert("Both players had the same score")
                 turnScore1 = 0;
                 turnScore2 = 0;
                 player1score.innerHTML = " " + turnScore1;
@@ -308,9 +303,7 @@ function finishTurn2() {
             }
         }
         else if (score1counter > 21) {
-            alert("Player 1 busted")
             if (turnScore2 > 0 && turnScore2 < 21) {
-                alert("Player 2 didn't bust and didn't get 21")
                 totalScore2 += 1;
                 playerTotal2.innerHTML = " " + totalScore2;
                 score1counter = 0;
@@ -333,7 +326,6 @@ function finishTurn2() {
             }
         }
         else if (score1counter === 21) {
-            alert("Player 1 hit score 21")
             score1counter = 0;
             turnScore2 = 0;
             player2score.innerHTML = " " + turnScore2;
